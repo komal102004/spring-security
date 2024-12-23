@@ -23,7 +23,11 @@ public class SecurityConfig {
                 .formLogin(form->form
                         .loginPage("/login").permitAll())
                 .exceptionHandling(ex->ex.accessDeniedPage("/access-denied"))
-                .logout(logout->logout.permitAll());
+                .logout(logout->logout
+                        .logoutUrl("/logout")
+                        .logoutSuccessUrl("/")
+                .invalidateHttpSession(true)
+                        .deleteCookies("JSESSIONID"));
         return http.build();
     }
 

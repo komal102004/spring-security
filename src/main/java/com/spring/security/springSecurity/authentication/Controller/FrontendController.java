@@ -10,4 +10,8 @@ public class FrontendController {
     {
         return "login";
     }
+    @GetMapping("/logout")
+    public String logOut(){
+        return "logout";
+    }
 }
